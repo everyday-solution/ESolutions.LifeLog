@@ -1,0 +1,54 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="ESolutions.LifeLog.Web.UI.Main" %>
+
+<%@ Register Assembly="ESolutions.Web" Namespace="ESolutions.Web.UI" TagPrefix="es" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+	<title>
+		<asp:ContentPlaceHolder ID="TitlePlaceHolder" runat="server">
+		</asp:ContentPlaceHolder>
+	</title>
+	<es:FileLinkControl ID="FileLinkControl1" runat="server" File="~/Style/Screen.css" />
+	<es:FileLinkControl ID="FileLinkControl4" runat="server" File="~/Style/ui-darkness/jquery-ui-1.8.9.custom.css" />
+	<es:FileLinkControl ID="FileLinkControl2" runat="server" File="~/Scripts/jquery-1.6.1.min.js" />
+	<es:FileLinkControl ID="FileLinkControl3" runat="server" File="~/Scripts/jquery-ui-1.8.9.custom.min.js" />
+	<es:FileLinkControl ID="FileLinkControl5" runat="server" File="~/Scripts/jquery.ui.datepicker-de.js" />
+	<es:FileLinkControl ID="FileLinkControl6" runat="server" File="~/Scripts/jquery-ui-timepicker-addon.js" />
+	<es:FileLinkControl ID="FileLinkControl7" runat="server" File="~/Scripts/jquery-ui-numeric.up.down.js" />
+	<asp:ContentPlaceHolder ID="ScriptPlaceHolder" runat="server">
+	</asp:ContentPlaceHolder>
+</head>
+<body>
+	<form id="form1" runat="server">
+		<div class="background_image">
+		</div>
+		<div class="content_panel">
+			<div class="logged_in_user">
+				<asp:Label runat="server" ID="NoCurrentUserLabel" Text="You are not logged in." Visible="true" />
+				<asp:Label runat="server" ID="CurrentUserIntroLabel" Text="You are logged in as: "
+					Visible="false" />
+				<asp:Label runat="server" ID="CurrentUserLabel" Visible="false" />
+			</div>
+			<div>
+				<asp:HyperLink runat="server" ID="HomeLink" CssClass="menu_link" Text="home" />
+				<asp:HyperLink runat="server" ID="SoulLink" CssClass="menu_link" Text="soul" />
+				<asp:HyperLink runat="server" ID="BodyLink" CssClass="menu_link" Text="body" />
+				<asp:HyperLink runat="server" ID="HeartLink" CssClass="menu_link" Text="heart" />
+				<asp:HyperLink runat="server" ID="ActionLink" CssClass="menu_link" Text="action" />
+				<asp:HyperLink runat="server" ID="FeastLink" CssClass="menu_link" Text="feast" />
+				<asp:HyperLink runat="server" ID="MeLink" CssClass="menu_link" Text="me" />
+				<asp:HyperLink runat="server" ID="LoginLink" CssClass="menu_link" Text="login" />
+				<asp:HyperLink runat="server" ID="CreateAccountLink" CssClass="menu_link" Text="become a member" />
+				<asp:LinkButton runat="server" ID="LogoutButton" CssClass="menu_link" Text="logout"
+					OnClick="LogoutButton_Click" />
+			</div>
+			<div>
+				<asp:Label runat="server" ID="ErrorLabel" CssClass="error" Visible="false" />
+			</div>
+			<div class="content_placeholder_panel">
+				<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
+			</div>
+		</div>
+	</form>
+</body>
+</html>

@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESolutions.LifeLog.Web.UI", "Web.UI\ESolutions.LifeLog.Web.UI.csproj", "{BDBBBF3E-4BD2-41A5-B116-314F835D3B42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESolutions.LifeLog.Models", "Models\ESolutions.LifeLog.Models.csproj", "{A574CA3C-742C-4C49-A0CD-976722429E48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESolutions.LifeLog.Web.UI.Mobile", "Web.UI.Mobile\ESolutions.LifeLog.Web.UI.Mobile.csproj", "{7B5A78A5-B137-4F3A-8E71-1DD3A492B5E7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDBBBF3E-4BD2-41A5-B116-314F835D3B42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDBBBF3E-4BD2-41A5-B116-314F835D3B42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDBBBF3E-4BD2-41A5-B116-314F835D3B42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDBBBF3E-4BD2-41A5-B116-314F835D3B42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A574CA3C-742C-4C49-A0CD-976722429E48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A574CA3C-742C-4C49-A0CD-976722429E48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A574CA3C-742C-4C49-A0CD-976722429E48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A574CA3C-742C-4C49-A0CD-976722429E48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B5A78A5-B137-4F3A-8E71-1DD3A492B5E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B5A78A5-B137-4F3A-8E71-1DD3A492B5E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B5A78A5-B137-4F3A-8E71-1DD3A492B5E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B5A78A5-B137-4F3A-8E71-1DD3A492B5E7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,544 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ESolutions.LifeLog.Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ESolutionsLifeLogModelStoreContainer">
+          <EntitySet Name="ActionLogs" EntityType="ESolutions.LifeLog.Model.Store.ActionLogs" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Actions" EntityType="ESolutions.LifeLog.Model.Store.Actions" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BloodPressures" EntityType="ESolutions.LifeLog.Model.Store.BloodPressures" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BodyMeasures" EntityType="ESolutions.LifeLog.Model.Store.BodyMeasures" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Ingestions" EntityType="ESolutions.LifeLog.Model.Store.Ingestions" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PhysicalActivityLevels" EntityType="ESolutions.LifeLog.Model.Store.PhysicalActivityLevels" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SuccessLogs" EntityType="ESolutions.LifeLog.Model.Store.SuccessLogs" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Users" EntityType="ESolutions.LifeLog.Model.Store.Users" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_ActionLogs_Actions" Association="ESolutions.LifeLog.Model.Store.FK_ActionLogs_Actions">
+            <End Role="Actions" EntitySet="Actions" />
+            <End Role="ActionLogs" EntitySet="ActionLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActionLogs_Users" Association="ESolutions.LifeLog.Model.Store.FK_ActionLogs_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="ActionLogs" EntitySet="ActionLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BloodPressures_Users" Association="ESolutions.LifeLog.Model.Store.FK_BloodPressures_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="BloodPressures" EntitySet="BloodPressures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BodyMeasures_Users" Association="ESolutions.LifeLog.Model.Store.FK_BodyMeasures_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="BodyMeasures" EntitySet="BodyMeasures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ingestions_Users" Association="ESolutions.LifeLog.Model.Store.FK_Ingestions_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Ingestions" EntitySet="Ingestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SuccessLogs_Users" Association="ESolutions.LifeLog.Model.Store.FK_SuccessLogs_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="SuccessLogs" EntitySet="SuccessLogs" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ActionLogs">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserGuid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="ActionGuid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DurationInMinutes" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Actions">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Consumption" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BloodPressures">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserGuid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="HeartRate" Type="int" Nullable="false" />
+          <Property Name="Systolic" Type="int" Nullable="false" />
+          <Property Name="Diastolic" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BodyMeasures">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserGuid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Weight" Type="float" Nullable="false" />
+          <Property Name="FatPercentage" Type="float" Nullable="false" />
+          <Property Name="WaterPercentage" Type="float" Nullable="false" />
+          <Property Name="ChestMeasurement" Type="float" Nullable="false" />
+          <Property Name="AbdominalMeasurement" Type="float" Nullable="false" />
+          <Property Name="HipMeasurement" Type="float" Nullable="false" />
+          <Property Name="PhysicalActivityLevel" Type="float" Nullable="false" />
+          <Property Name="HeightInCentimeters" Type="int" Nullable="false" />
+          <Property Name="LeftUpperArm" Type="float" Nullable="false" />
+          <Property Name="RightUpperArm" Type="float" Nullable="false" />
+          <Property Name="LeftUpperLeg" Type="float" Nullable="false" />
+          <Property Name="RightUpperLeg" Type="float" Nullable="false" />
+          <Property Name="SidePictureGuid" Type="uniqueidentifier" />
+          <Property Name="FrontPictureGuid" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Ingestions">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserGuid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="PictureGuid" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PhysicalActivityLevels">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Factor" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SuccessLogs">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserGuid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Hash" Type="varbinary(max)" Nullable="false" />
+          <Property Name="DateOfBirth" Type="datetime" Nullable="false" />
+          <Property Name="HeightInCentimeters" Type="int" Nullable="false" />
+          <Property Name="Gender" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ActionLogs_Actions">
+          <End Role="Actions" Type="ESolutions.LifeLog.Model.Store.Actions" Multiplicity="1" />
+          <End Role="ActionLogs" Type="ESolutions.LifeLog.Model.Store.ActionLogs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Actions">
+              <PropertyRef Name="Guid" />
+            </Principal>
+            <Dependent Role="ActionLogs">
+              <PropertyRef Name="ActionGuid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActionLogs_Users">
+          <End Role="Users" Type="ESolutions.LifeLog.Model.Store.Users" Multiplicity="1" />
+          <End Role="ActionLogs" Type="ESolutions.LifeLog.Model.Store.ActionLogs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Guid" />
+            </Principal>
+            <Dependent Role="ActionLogs">
+              <PropertyRef Name="UserGuid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BloodPressures_Users">
+          <End Role="Users" Type="ESolutions.LifeLog.Model.Store.Users" Multiplicity="1" />
+          <End Role="BloodPressures" Type="ESolutions.LifeLog.Model.Store.BloodPressures" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Guid" />
+            </Principal>
+            <Dependent Role="BloodPressures">
+              <PropertyRef Name="UserGuid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BodyMeasures_Users">
+          <End Role="Users" Type="ESolutions.LifeLog.Model.Store.Users" Multiplicity="1" />
+          <End Role="BodyMeasures" Type="ESolutions.LifeLog.Model.Store.BodyMeasures" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Guid" />
+            </Principal>
+            <Dependent Role="BodyMeasures">
+              <PropertyRef Name="UserGuid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ingestions_Users">
+          <End Role="Users" Type="ESolutions.LifeLog.Model.Store.Users" Multiplicity="1" />
+          <End Role="Ingestions" Type="ESolutions.LifeLog.Model.Store.Ingestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Guid" />
+            </Principal>
+            <Dependent Role="Ingestions">
+              <PropertyRef Name="UserGuid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SuccessLogs_Users">
+          <End Role="Users" Type="ESolutions.LifeLog.Model.Store.Users" Multiplicity="1" />
+          <End Role="SuccessLogs" Type="ESolutions.LifeLog.Model.Store.SuccessLogs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Guid" />
+            </Principal>
+            <Dependent Role="SuccessLogs">
+              <PropertyRef Name="UserGuid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ESolutions.LifeLog.Models" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="MyDataContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ActionLogs" EntityType="ESolutions.LifeLog.Models.ActionLog" />
+          <EntitySet Name="Actions" EntityType="ESolutions.LifeLog.Models.Action" />
+          <EntitySet Name="BloodPressures" EntityType="ESolutions.LifeLog.Models.BloodPressure" />
+          <EntitySet Name="BodyMeasures" EntityType="ESolutions.LifeLog.Models.BodyMeasure" />
+          <EntitySet Name="Ingestions" EntityType="ESolutions.LifeLog.Models.Ingestion" />
+          <EntitySet Name="PhysicalActivityLevels" EntityType="ESolutions.LifeLog.Models.PhysicalActivityLevel" />
+          <EntitySet Name="SuccessLogs" EntityType="ESolutions.LifeLog.Models.SuccessLog" />
+          <EntitySet Name="Users" EntityType="ESolutions.LifeLog.Models.User" />
+          <AssociationSet Name="FK_ActionLogs_Actions" Association="ESolutions.LifeLog.Models.FK_ActionLogs_Actions">
+            <End Role="Actions" EntitySet="Actions" />
+            <End Role="ActionLogs" EntitySet="ActionLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActionLogs_Users" Association="ESolutions.LifeLog.Models.FK_ActionLogs_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="ActionLogs" EntitySet="ActionLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BloodPressures_Users" Association="ESolutions.LifeLog.Models.FK_BloodPressures_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="BloodPressures" EntitySet="BloodPressures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BodyMeasures_Users" Association="ESolutions.LifeLog.Models.FK_BodyMeasures_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="BodyMeasures" EntitySet="BodyMeasures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ingestions_Users" Association="ESolutions.LifeLog.Models.FK_Ingestions_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Ingestions" EntitySet="Ingestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SuccessLogs_Users" Association="ESolutions.LifeLog.Models.FK_SuccessLogs_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="SuccessLogs" EntitySet="SuccessLogs" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ActionLog">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="Guid" Nullable="false" />
+          <Property Name="UserGuid" Type="Guid" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ActionGuid" Type="Guid" Nullable="false" />
+          <Property Name="DurationInMinutes" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Action" Relationship="ESolutions.LifeLog.Models.FK_ActionLogs_Actions" FromRole="ActionLogs" ToRole="Actions" />
+          <NavigationProperty Name="User" Relationship="ESolutions.LifeLog.Models.FK_ActionLogs_Users" FromRole="ActionLogs" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Action">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Consumption" Type="Double" Nullable="false" />
+          <NavigationProperty Name="ActionLogs" Relationship="ESolutions.LifeLog.Models.FK_ActionLogs_Actions" FromRole="Actions" ToRole="ActionLogs" />
+        </EntityType>
+        <EntityType Name="BloodPressure">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="Guid" Nullable="false" />
+          <Property Name="UserGuid" Type="Guid" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="HeartRate" Type="Int32" Nullable="false" />
+          <Property Name="Systolic" Type="Int32" Nullable="false" />
+          <Property Name="Diastolic" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="ESolutions.LifeLog.Models.FK_BloodPressures_Users" FromRole="BloodPressures" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="BodyMeasure">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="Guid" Nullable="false" />
+          <Property Name="UserGuid" Type="Guid" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Weight" Type="Double" Nullable="false" />
+          <Property Name="FatPercentage" Type="Double" Nullable="false" />
+          <Property Name="WaterPercentage" Type="Double" Nullable="false" />
+          <Property Name="ChestMeasurement" Type="Double" Nullable="false" />
+          <Property Name="AbdominalMeasurement" Type="Double" Nullable="false" />
+          <Property Name="HipMeasurement" Type="Double" Nullable="false" />
+          <Property Name="PhysicalActivityLevel" Type="Double" Nullable="false" />
+          <Property Name="HeightInCentimeters" Type="Int32" Nullable="false" />
+          <Property Name="LeftUpperArm" Type="Double" Nullable="false" />
+          <Property Name="RightUpperArm" Type="Double" Nullable="false" />
+          <Property Name="LeftUpperLeg" Type="Double" Nullable="false" />
+          <Property Name="RightUpperLeg" Type="Double" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="ESolutions.LifeLog.Models.FK_BodyMeasures_Users" FromRole="BodyMeasures" ToRole="Users" />
+          <Property Type="Guid" Name="SidePictureGuid" />
+          <Property Type="Guid" Name="FrontPictureGuid" />
+        </EntityType>
+        <EntityType Name="Ingestion">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="Guid" Nullable="false" />
+          <Property Name="UserGuid" Type="Guid" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PictureGuid" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="ESolutions.LifeLog.Models.FK_Ingestions_Users" FromRole="Ingestions" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="PhysicalActivityLevel">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Factor" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SuccessLog">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="Guid" Nullable="false" />
+          <Property Name="UserGuid" Type="Guid" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="type" Type="Int32" Nullable="false" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Private" />
+          <NavigationProperty Name="User" Relationship="ESolutions.LifeLog.Models.FK_SuccessLogs_Users" FromRole="SuccessLogs" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="Guid" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Hash" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="HeightInCentimeters" Type="Int32" Nullable="false" />
+          <Property Name="gender" Type="Int32" Nullable="false" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Private" />
+          <NavigationProperty Name="ActionLogs" Relationship="ESolutions.LifeLog.Models.FK_ActionLogs_Users" FromRole="Users" ToRole="ActionLogs" />
+          <NavigationProperty Name="BloodPressures" Relationship="ESolutions.LifeLog.Models.FK_BloodPressures_Users" FromRole="Users" ToRole="BloodPressures" />
+          <NavigationProperty Name="BodyMeasures" Relationship="ESolutions.LifeLog.Models.FK_BodyMeasures_Users" FromRole="Users" ToRole="BodyMeasures" />
+          <NavigationProperty Name="Ingestions" Relationship="ESolutions.LifeLog.Models.FK_Ingestions_Users" FromRole="Users" ToRole="Ingestions" />
+          <NavigationProperty Name="SuccessLogs" Relationship="ESolutions.LifeLog.Models.FK_SuccessLogs_Users" FromRole="Users" ToRole="SuccessLogs" />
+        </EntityType>
+        <Association Name="FK_ActionLogs_Actions">
+          <End Role="Actions" Type="ESolutions.LifeLog.Models.Action" Multiplicity="1" />
+          <End Role="ActionLogs" Type="ESolutions.LifeLog.Models.ActionLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Actions">
+              <PropertyRef Name="Guid" />
+            </Principal>
+            <Dependent Role="ActionLogs">
+              <PropertyRef Name="ActionGuid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActionLogs_Users">
+          <End Role="Users" Type="ESolutions.LifeLog.Models.User" Multiplicity="1" />
+          <End Role="ActionLogs" Type="ESolutions.LifeLog.Models.ActionLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Guid" />
+            </Principal>
+            <Dependent Role="ActionLogs">
+              <PropertyRef Name="UserGuid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BloodPressures_Users">
+          <End Role="Users" Type="ESolutions.LifeLog.Models.User" Multiplicity="1" />
+          <End Role="BloodPressures" Type="ESolutions.LifeLog.Models.BloodPressure" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Guid" />
+            </Principal>
+            <Dependent Role="BloodPressures">
+              <PropertyRef Name="UserGuid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BodyMeasures_Users">
+          <End Role="Users" Type="ESolutions.LifeLog.Models.User" Multiplicity="1" />
+          <End Role="BodyMeasures" Type="ESolutions.LifeLog.Models.BodyMeasure" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Guid" />
+            </Principal>
+            <Dependent Role="BodyMeasures">
+              <PropertyRef Name="UserGuid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ingestions_Users">
+          <End Role="Users" Type="ESolutions.LifeLog.Models.User" Multiplicity="1" />
+          <End Role="Ingestions" Type="ESolutions.LifeLog.Models.Ingestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Guid" />
+            </Principal>
+            <Dependent Role="Ingestions">
+              <PropertyRef Name="UserGuid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SuccessLogs_Users">
+          <End Role="Users" Type="ESolutions.LifeLog.Models.User" Multiplicity="1" />
+          <End Role="SuccessLogs" Type="ESolutions.LifeLog.Models.SuccessLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Guid" />
+            </Principal>
+            <Dependent Role="SuccessLogs">
+              <PropertyRef Name="UserGuid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ESolutionsLifeLogModelStoreContainer" CdmEntityContainer="MyDataContext">
+          <EntitySetMapping Name="ActionLogs"><EntityTypeMapping TypeName="ESolutions.LifeLog.Models.ActionLog"><MappingFragment StoreEntitySet="ActionLogs">
+            <ScalarProperty Name="Guid" ColumnName="Guid" />
+            <ScalarProperty Name="UserGuid" ColumnName="UserGuid" />
+            <ScalarProperty Name="Date" ColumnName="Date" />
+            <ScalarProperty Name="ActionGuid" ColumnName="ActionGuid" />
+            <ScalarProperty Name="DurationInMinutes" ColumnName="DurationInMinutes" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Actions"><EntityTypeMapping TypeName="ESolutions.LifeLog.Models.Action"><MappingFragment StoreEntitySet="Actions">
+            <ScalarProperty Name="Guid" ColumnName="Guid" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Consumption" ColumnName="Consumption" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="BloodPressures"><EntityTypeMapping TypeName="ESolutions.LifeLog.Models.BloodPressure"><MappingFragment StoreEntitySet="BloodPressures">
+            <ScalarProperty Name="Guid" ColumnName="Guid" />
+            <ScalarProperty Name="UserGuid" ColumnName="UserGuid" />
+            <ScalarProperty Name="Date" ColumnName="Date" />
+            <ScalarProperty Name="HeartRate" ColumnName="HeartRate" />
+            <ScalarProperty Name="Systolic" ColumnName="Systolic" />
+            <ScalarProperty Name="Diastolic" ColumnName="Diastolic" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="BodyMeasures"><EntityTypeMapping TypeName="ESolutions.LifeLog.Models.BodyMeasure"><MappingFragment StoreEntitySet="BodyMeasures">
+            <ScalarProperty Name="FrontPictureGuid" ColumnName="FrontPictureGuid" />
+                <ScalarProperty Name="SidePictureGuid" ColumnName="SidePictureGuid" />
+                <ScalarProperty Name="Guid" ColumnName="Guid" />
+            <ScalarProperty Name="UserGuid" ColumnName="UserGuid" />
+            <ScalarProperty Name="Date" ColumnName="Date" />
+            <ScalarProperty Name="Weight" ColumnName="Weight" />
+            <ScalarProperty Name="FatPercentage" ColumnName="FatPercentage" />
+            <ScalarProperty Name="WaterPercentage" ColumnName="WaterPercentage" />
+            <ScalarProperty Name="ChestMeasurement" ColumnName="ChestMeasurement" />
+            <ScalarProperty Name="AbdominalMeasurement" ColumnName="AbdominalMeasurement" />
+            <ScalarProperty Name="HipMeasurement" ColumnName="HipMeasurement" />
+            <ScalarProperty Name="PhysicalActivityLevel" ColumnName="PhysicalActivityLevel" />
+            <ScalarProperty Name="HeightInCentimeters" ColumnName="HeightInCentimeters" />
+            <ScalarProperty Name="LeftUpperArm" ColumnName="LeftUpperArm" />
+            <ScalarProperty Name="RightUpperArm" ColumnName="RightUpperArm" />
+            <ScalarProperty Name="LeftUpperLeg" ColumnName="LeftUpperLeg" />
+            <ScalarProperty Name="RightUpperLeg" ColumnName="RightUpperLeg" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Ingestions"><EntityTypeMapping TypeName="ESolutions.LifeLog.Models.Ingestion"><MappingFragment StoreEntitySet="Ingestions">
+            <ScalarProperty Name="Guid" ColumnName="Guid" />
+            <ScalarProperty Name="UserGuid" ColumnName="UserGuid" />
+            <ScalarProperty Name="Date" ColumnName="Date" />
+            <ScalarProperty Name="PictureGuid" ColumnName="PictureGuid" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="PhysicalActivityLevels"><EntityTypeMapping TypeName="ESolutions.LifeLog.Models.PhysicalActivityLevel"><MappingFragment StoreEntitySet="PhysicalActivityLevels">
+            <ScalarProperty Name="Guid" ColumnName="Guid" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Factor" ColumnName="Factor" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="SuccessLogs"><EntityTypeMapping TypeName="ESolutions.LifeLog.Models.SuccessLog"><MappingFragment StoreEntitySet="SuccessLogs">
+            <ScalarProperty Name="Guid" ColumnName="Guid" />
+            <ScalarProperty Name="UserGuid" ColumnName="UserGuid" />
+            <ScalarProperty Name="Date" ColumnName="Date" />
+            <ScalarProperty Name="Text" ColumnName="Text" />
+            <ScalarProperty Name="type" ColumnName="Type" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Users"><EntityTypeMapping TypeName="ESolutions.LifeLog.Models.User"><MappingFragment StoreEntitySet="Users">
+            <ScalarProperty Name="Guid" ColumnName="Guid" />
+            <ScalarProperty Name="Email" ColumnName="Email" />
+            <ScalarProperty Name="Hash" ColumnName="Hash" />
+            <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+            <ScalarProperty Name="HeightInCentimeters" ColumnName="HeightInCentimeters" />
+            <ScalarProperty Name="gender" ColumnName="Gender" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="MyDataContext" ZoomLevel="71">
+        <EntityTypeShape EntityType="ESolutions.LifeLog.Models.ActionLog" Width="1.5" PointX="11.5" PointY="5.625" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESolutions.LifeLog.Models.Action" Width="1.5" PointX="11.375" PointY="2.375" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESolutions.LifeLog.Models.BloodPressure" Width="1.5" PointX="6.875" PointY="12.75" Height="2.3648893229166665" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESolutions.LifeLog.Models.BodyMeasure" Width="1.5" PointX="1.125" PointY="6.125" Height="4.2879036458333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESolutions.LifeLog.Models.Ingestion" Width="1.5" PointX="9.375" PointY="6.5" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESolutions.LifeLog.Models.PhysicalActivityLevel" Width="1.5" PointX="13.625" PointY="9" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESolutions.LifeLog.Models.SuccessLog" Width="1.5" PointX="0.75" PointY="12.125" Height="2.172587890624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESolutions.LifeLog.Models.User" Width="1.5" PointX="6.875" PointY="9" Height="3.1340950520833353" IsExpanded="true" />
+        <AssociationConnector Association="ESolutions.LifeLog.Models.FK_ActionLogs_Actions" ManuallyRouted="false">
+          <ConnectorPoint PointX="12.1875" PointY="4.1629850260416674" />
+          <ConnectorPoint PointX="12.1875" PointY="5.625" />
+        </AssociationConnector>
+        <AssociationConnector Association="ESolutions.LifeLog.Models.FK_ActionLogs_Users" ManuallyRouted="false">
+          <ConnectorPoint PointX="8.375" PointY="10.567047526041668" />
+          <ConnectorPoint PointX="12.25" PointY="10.567047526041668" />
+          <ConnectorPoint PointX="12.25" PointY="7.9898893229166674" />
+        </AssociationConnector>
+        <AssociationConnector Association="ESolutions.LifeLog.Models.FK_BloodPressures_Users" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.625" PointY="12.134095052083335" />
+          <ConnectorPoint PointX="7.625" PointY="12.75" />
+        </AssociationConnector>
+        <AssociationConnector Association="ESolutions.LifeLog.Models.FK_BodyMeasures_Users" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.875" PointY="9.7064518229166659" />
+          <ConnectorPoint PointX="2.625" PointY="9.7064518229166659" />
+        </AssociationConnector>
+        <AssociationConnector Association="ESolutions.LifeLog.Models.FK_Ingestions_Users" ManuallyRouted="false">
+          <ConnectorPoint PointX="8.375" PointY="9.7522712630208339" />
+          <ConnectorPoint PointX="10.125" PointY="9.7522712630208339" />
+          <ConnectorPoint PointX="10.125" PointY="8.672587890625" />
+        </AssociationConnector>
+        <AssociationConnector Association="ESolutions.LifeLog.Models.FK_SuccessLogs_Users" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.875" PointY="11.34374975" />
+          <ConnectorPoint PointX="0.90625" PointY="11.34374975" />
+          <ConnectorPoint PointX="0.90625" PointY="12.125" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

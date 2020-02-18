@@ -1,0 +1,269 @@
+﻿html {
+	height: 100%;
+	font-family: Arial;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+}
+
+a {
+	text-decoration: none;
+	color: Black;
+}
+
+.edit {
+	border-left: solid 3px rgba(218, 234, 182, 0.9);
+	border-top: solid 3px rgba(218, 234, 182, 0.9);
+	border-bottom: solid 3px rgba(218, 234, 182, 0.9);
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+
+h1 {
+	font-size: large;
+	font-weight: normal;
+	color: #99c544;
+	font-style: italic;
+	margin: 0px;
+	padding: 0px;
+}
+
+h2 {
+	font-size: large;
+	font-weight: normal;
+	color: #99c544;
+	font-style: italic;
+	margin: 0px;
+	padding: 0px;
+	min-height: 30px;
+}
+
+.form_field {
+	margin: 5px;
+}
+
+	.form_field .caption {
+		color: Gray;
+		font-size: 10px;
+		min-height: 16px;
+	}
+
+.multi_column {
+	float: left;
+	margin: 5px;
+}
+
+.last_column {
+	clear: both;
+}
+
+.data_panel {
+	padding-bottom: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.data_list {
+	margin-top: 5px;
+}
+
+	.data_list th {
+		background-color: #99C544;
+		padding: 5px;
+	}
+
+		.data_list th.average {
+			text-align: left;
+			background-color: rgba(216, 255, 73, 0.9);
+			padding: 5px;
+			color: gray;
+		}
+
+	.data_list tbody td {
+		background-color: rgba(218, 234, 182, 0.9);
+		padding: 5px;
+	}
+
+	.data_list .item {
+		border-left: solid 3px rgba(218, 234, 182, 0.9);
+		border-top: solid 3px rgba(218, 234, 182, 0.9);
+		background-color: rgba(255, 255, 255, 0.5);
+		border-top-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+		padding: 5px;
+		margin-bottom: 10px;
+	}
+
+	.data_list .sub_item {
+		background-color: rgba(218, 234, 182, 0.9);
+		padding: 5px;
+		margin-bottom: 10px;
+		border-radius: 10px;
+	}
+
+.mybutton {
+	position: relative;
+	top: 3px;
+}
+
+.my_image_button {
+	border: solid 1px #daeab6;
+	padding: 2px;
+	color: gray;
+	text-align: center;
+	display: block;
+	width: 75px;
+	position: relative;
+	top: 3px;
+}
+
+	.my_image_button .label {
+		vertical-align: middle;
+	}
+
+	.my_image_button .image {
+		margin-left: 5px;
+		vertical-align: middle;
+	}
+
+.error {
+	font-size: smaller;
+	color: Red;
+}
+
+/*----------------------------------------------------*/
+/* main.master*/
+/*----------------------------------------------------*/
+.menu_link {
+	font-size: x-large;
+	font-family: Arial;
+	border-top: solid 2px black;
+	margin-right: 10px;
+}
+
+.logged_in_user {
+	font-family: Arial;
+	font-size: small;
+	margin-bottom: 5px;
+}
+
+.content_panel {
+	padding: 20px;
+	margin: 0px;
+}
+
+.content_placeholder_panel {
+	margin-top: 10px;
+	width: 580px;
+	width: 100%;
+}
+
+.background_image {
+	background-image: url('./images/background.jpg');
+	background-position: bottom left;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	z-index: -1;
+	overflow: hidden;
+}
+
+/*----------------------------------------------------*/
+/* default.aspx */
+/*----------------------------------------------------*/
+.intro {
+	width: 400px;
+	text-align: justify;
+}
+
+	.intro .para {
+		margin-bottom: 10px;
+	}
+
+/*----------------------------------------------------*/
+/* CreateAccountForm.aspx */
+/*----------------------------------------------------*/
+.missing_form_field {
+	font-size: x-small;
+}
+
+/*----------------------------------------------------*/
+/* Soul/Default.aspx */
+/*----------------------------------------------------*/
+.success_note {
+	height: 90px;
+	width: 400px;
+}
+
+/*----------------------------------------------------*/
+/* Soul/Default.aspx */
+/*----------------------------------------------------*/
+.item .title {
+	vertical-align: middle;
+}
+
+/*----------------------------------------------------*/
+/* body/Default.aspx*/
+/*----------------------------------------------------*/
+#body .image_button {
+	cursor: pointer;
+}
+
+/*----------------------------------------------------*/
+/* heart/Default.aspx*/
+/*----------------------------------------------------*/
+#heart .image_button {
+	cursor: pointer;
+}
+
+/*----------------------------------------------------*/
+/* Feast */
+/*----------------------------------------------------*/
+.AlimentAutoPanel {
+	background-color: white;
+	padding: 5px;
+	margin: 0px;
+	border: 1px solid gray;
+}
+
+.AlimentAutoItem {
+	font-size: small;
+}
+
+/*----------------------------------------------------*/
+/* Feast/Default.aspx */
+/*----------------------------------------------------*/
+img.ingestion {
+	margin: 5px;
+	border-radius: 5px;
+}
+
+/*----------------------------------------------------*/
+/* Statistic */
+/*----------------------------------------------------*/
+.StatisticPanel {
+	margin-top: 20px;
+}
+
+.StatisticField {
+}
+
+.StatisticLabel {
+	width: 200px;
+	text-align: right;
+}
+
+.StatisticValue {
+}
+
+.StatisticValueSum {
+	border-top: solid 1px black;
+}

@@ -1,0 +1,38 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="ESolutions.LifeLog.Web.UI.Mobile.Main" %>
+
+<%@ Register Assembly="ESolutions.Web" Namespace="ESolutions.Web.UI" TagPrefix="es" %>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+	<title>MyLifeLog</title>
+	<es:FileLinkControl ID="StyleFile" runat="server" File="~/Layout/Screen.css" />
+	<es:FileLinkControl ID="JqueryFile" runat="server" File="~/Scripts/jquery-1.8.2.min.js" />
+	<es:FileLinkControl ID="FileLinkControl1" runat="server" File="~/Scripts/jquery.watermark.min.js" />
+	<meta name="viewport" content="width = 320" />
+	<asp:ContentPlaceHolder ID="head" runat="server">
+	</asp:ContentPlaceHolder>
+</head>
+<body>
+	<form id="form1" runat="server">
+		<div id="floating_content">
+			<div id="app_name">
+				my_life_log
+			</div>
+			<h1 id="title">
+				<asp:ContentPlaceHolder ID="TitleContentPlaceHolder" runat="server" />
+			</h1>
+			<div id="error">
+				<asp:Label runat="server" ID="ErrorLabel" Visible="false" />
+			</div>
+			<div id="content">
+				<asp:ContentPlaceHolder ID="MainContentPlaceHolder" runat="server" />
+			</div>
+		</div>
+		<div id="commands">
+			<asp:HyperLink runat="server" ID="HomeLink" ImageUrl="~/Layout/Home.png" AlternateText="home" ToolTip="home" />
+			<asp:ContentPlaceHolder ID="CommandsPlaceHolder" runat="server" />
+		</div>
+	</form>
+</body>
+</html>
